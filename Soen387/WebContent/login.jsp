@@ -29,7 +29,7 @@ Connection con=DriverManager.getConnection(databaseUrl,databaseUser,databasePass
 
  Statement st=con.createStatement();
 
-ResultSet rs=st.executeQuery("SELECT * FROM gametable where email='"+email+"'");
+ResultSet rs=st.executeQuery("SELECT * FROM usertable where email='"+email+"'");
 
 if(rs.next())
 
