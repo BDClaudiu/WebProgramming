@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Page</title>
+
+
+
+<style> 
+input[type=text] {
+    width: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url("searchimg.jpg");
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 800px;
+}
+
+
+.boxSize{
+
+width:150px;
+height:25px;
+}
+</style>
+
+
+
+</head>
+<body >
+
+<div>
+	<h3>Search Box</h3>
+</div>
+<form action="Search.jsp" method="post">
+  
+ 
+  <input type="text" name="gamename"  placeholder="Search...">
+  
+<table>
+<tr>
+	
+	<td>
+		<label for="cosole" >Console</label><br/>
+		<select id="console" name="console" class="boxSize">
+			<option value="*">Default </option>
+		  	<option value="nintendo" >Nintendo </option>
+		  	<option value="nintendo wii">Nintendo wii</option>
+		  	<option value="playstation 3">PlayStation 3</option>
+		  	<option value="playstation 4">PlayStation 4</option>
+		  	<option value="pc">PC</option>
+		  	<option value="xbox">XBox</option>
+		</select>
+	</td>
+	
+	<td>
+	<label for="num_players" >Number of players</label><br/>
+		<select id="num_players" name="num_players" class="boxSize">
+			<option value="0">Default </option>
+		  	<option value="1">1</option>
+		  	<option value="2">2</option>
+		  	<option value="4">4</option>
+		</select>
+	</td>
+	
+	<td>
+	<label for="coop">Coop</label><br/>
+		<select id="coop" name="coop" class="boxSize">
+			<option value="*"   >	Default 	</option>
+		  	<option value="yes" >	Yes			</option>
+		  	<option value="no"  >	No			</option>
+		</select>
+	</td>
+	
+	<td>
+	<label for="gender">Gender</label><br/>
+		<select id="gender" name="gender" class="boxSize">
+			<option value="*">Default </option>
+		  	<option value="adventure">Adventure</option>
+		  	<option value="action">Action</option>
+		  	<option value="fighting">Fighting</option>
+		  	<option value="strategy">Strategy</option>
+		  	<option value="shooter">Shooter</option>
+		  	<option value="puzzle">Puzzle</option>
+		  	<option value="sports">Sports</option>
+		  	<option value="racing">Racing</option>
+		</select>
+	</td>
+	
+	<td>
+	<label for="publisher">Publisher</label><br/>
+		<select id="publisher" name="publisher" class="boxSize">
+			<option value="*">Default </option>
+		  	<option value="nintendo">Nintendo</option>
+		  	<option value="konami">Konami</option>
+		  	<option value="blizzard">Blizzard</option>
+		  	<option value="electronic art">Electronic Arts </option>
+		  	<option value="capcom">Captom</option>
+		  	<option value="atlus">Atlus</option>
+		  	<option value="activision">Activision</option>
+		  	<option value="atari">Atari</option>
+		</select>
+	</td>
+	
+</tr>
+
+</table>
+  
+  <br/><br/><br/><br/><br/><br/>
+  <input type="submit" value="searchME" id="searchBtn">
+  
+</form>
+
+
+
+
+
+
+
+
+</body>
+</html>
