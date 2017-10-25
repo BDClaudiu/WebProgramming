@@ -27,17 +27,75 @@ try {
 	   String databaseUser="root";
 	   String databasePass="";
 	   
-	   String s1=request.getParameter("gamename");	
+	   
+	   //get users imput from the search form
+	   	String s1=request.getParameter("gamename");	
+	   	String s2=request.getParameter("console");	
+	   	String s300=request.getParameter("num_players");	
+			int s3= Integer.parseInt(s300);		
+		String s4=request.getParameter("coop");
+		String s5=request.getParameter("gender");
+		String s6=request.getParameter("publisher");
 		
-	   Connection con=DriverManager.getConnection(databaseUrl, databaseUser,databasePass);
-	   		out.println(s1);
+		
+		//Main/base Query string
+		String mainQuery=("SELECT * FROM gametable WHERE 1=1");
+		
+		
+		//Additional  query conditions that will be added to the mainQuery 
+		String gamenameADD=(" AND gamename='"+s1+"'");
+		String consoleADD=(" AND console='"+s2+"'");
+		String numOfPlayersADD=(" AND num_players='"+s3+"'");
+		String coopADD=(" AND coop='"+s4+"'");
+		String genderADD=(" AND gender='"+s5+"'");
+		String publisherADD=(" AND publisher='"+s6+"'");
+		
+		//Overrides the additional query conditions if default values and adds empty string to the mainQuery 
+		if(s1.equalsIgnoreCase("default"))
+		{
+			gamenameADD=("");
+		}
+		 if(s2.equalsIgnoreCase("default"))
+		{
+			consoleADD=("");	
+		}
+		 if(s3==0)
+		{
+			numOfPlayersADD=("");
+		}
+		
+		 if(s4.equalsIgnoreCase("default"))
+		{
+			coopADD=("");
+		}
+		
+		 if(s5.equalsIgnoreCase("default"))
+		{
+			genderADD=("");
+		}
+		 if(s6.equalsIgnoreCase("default"))
+		{
+			publisherADD=("");	
+		}
+		
+		//Search query string
+		String searchQuery=mainQuery+gamenameADD+consoleADD+numOfPlayersADD+coopADD+genderADD+publisherADD;
+		
+		//just to see how the query looks line
+		out.println(searchQuery);
+	   	Connection con=DriverManager.getConnection(databaseUrl, databaseUser,databasePass);
+	   		
       
-       		//Queries here!!
+       		
 		   Statement stmt=con.createStatement();
-			  
-		   ResultSet rs= stmt.executeQuery("SELECT * FROM gametable WHERE gamename='"+s1+"'");
+		   
+		   
+		 //Queries execution goes here!!
+		ResultSet rs= stmt.executeQuery(searchQuery);
 		   
 		   while(rs.next())
+			   
+			
 		   
 		   {
 			
@@ -64,11 +122,7 @@ try {
 	
 }
 
-
-
-
-
-out.println("I am your Search JSP!!!");
+out.println("I am your Search JSP Page!!!");
 
 
 %>
