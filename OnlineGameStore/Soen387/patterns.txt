@@ -1,0 +1,4 @@
+Session state- Shopping cart page: i save data for that particular session
+Transaction Script - a single procedure handles 1 request (add to cart, 1 jsp for 1 transaction, same as register)
+Table Gateway Pattern- search jsp where we look for games
+Page Controller Pattern - controller java that redirects jsp pages
